@@ -1,0 +1,55 @@
+div.navbar{
+	display: none;
+}
+.navbar .center {
+	line-height: 0!important;
+}
+.navbar{
+	background: url('../img/fondo.png') transparent!important;
+}
+.navbar:after{
+	background: transparent!important;
+}
+.navbar a{
+	color: white!important;
+}
+i.icon.icon-bars{
+
+}
+.list-block ul{
+	background: none!important;
+}
+.searchbar{
+	background: #39acd8;
+}
+.searchbar.searchbar-active .searchbar-cancel{
+	color: white!important;
+}
+
+.list-block ul:before{
+	background-color: none!important;
+}
+.list-block .item-inner:after{
+	background-color: #39acd8;
+}
+.list-block .item-content{
+	padding-left: 0;
+}
+
+.list-block .item-title{
+	padding-left: 15px;
+}
+
+.navbar-through .page-content{
+	padding-top: 60px;
+}
+.navbar-fixed .page>.searchbar, .navbar-fixed>.searchbar, .navbar-through .page>.searchbar, .navbar-through>.searchbar{
+	top:60px;
+}
+
+.list-block ul:before,
+.list-block ul:after,
+.list-block ul,
+.navbar:after{
+	background-color: transparent!important;
+}

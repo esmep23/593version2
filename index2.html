@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyCxjkDTqarZuUpYLOVYid6sG6LTZ_3RI9c"></script>-->
+
+    <title>_app PLAYAS_</title>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="dist/js/framework7.min.js"></script>
+    <link rel="stylesheet" href="dist/css/framework7.ios.min.css">
+
+
+  </head>
+  <body>
+
+  <div id="map_canvas"
+    style="position:absolute;top:30px;bottom:50px;left:0;right:0;"></div>
+
+    
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-cover">
+      <div class="content-block">
+       <p><img src="img/logo2.png" /></p>
+        <div id="menuP" class="list-block">
+                <ul>
+                  <li><a href="#busqueda" class="item-link close-panel">
+                      <div class="item-content"> 
+                        <div class="item-inner">
+                          <div class="item-title">Busqueda</div>
+                        </div>
+                      </div></a></li>
+                  <li><a href="#misplayas" class="item-link close-panel">
+                      <div class="item-content"> 
+                        <div class="item-inner">
+                          <div class="item-title">Mis Playas</div>
+                        </div>
+                      </div></a></li>
+                  <li><a href="#mapa" class="item-link close-panel">
+                      <div class="item-content"> 
+                        <div class="item-inner">
+                          <div class="item-title">Mapa</div>
+                        </div>
+                      </div></a></li>
+                </ul>
+              </div>
+      </div>
+    </div>
+
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+
+          
+          <div data-page="index" class="navbar-inner">
+          </div>
+
+          <!-- Navbar inner for Index page-->
+          <div id="home" data-page="playas" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" data-panel="left" class="open-panel"><i class="icon fa fa-bars"></i></a>
+            </div>
+            <div class="center"><p><img src="img/logo2.png" /></p></div>
+            <div class="right">
+                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+            </div>
+          </div>
+
+          <!-- Navbar inner for About page-->
+          <div id="pageBusqueda" data-page="busqueda" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
+            <div class="center sliding"><p><img src="img/logo2.png" /></p></div>
+          </div>
+
+          <!-- Navbar inner for About page-->
+          <div data-page="infoPlayas" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
+            <div class="center sliding"><p><img src="img/logo2.png" /></div>
+            <div class="right">
+                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+            </div>
+          </div>
+
+          <!-- Navbar inner for Form page-->
+          <div data-page="registro" class="navbar-inner cached">
+            
+          </div>
+          <!-- Navbar inner for Form page-->
+          <div data-page="misplayas" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
+            <div class="center sliding"><p><img src="img/logo.png" /></p></div>
+            <div class="right">
+                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+            </div>
+          </div>
+          <!-- Navbar inner for Form page-->
+          <div data-page="mapa" class="navbar-inner cached">
+            <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
+            <div class="center sliding"><p><img src="img/logo.png" /></p></div>
+            <div class="right">
+                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!--
+          |================================================================================|
+          | INICIO                               
+          |================================================================================|
+          -->
+          <div id="index" data-page="index" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+                <img src="img/logo.png" class="homeLogo"/>
+                <div class="content-block">
+                  <footer>
+                    <a href="#playas"><div class="boton-entrar">REGISTRO</div></a>
+                  </footer>
+                </div>
+            </div>
+          </div>
+          <!--
+          |================================================================================|
+          | REGISTRO                               
+          |================================================================================|
+          -->
+          <div id="registro" data-page="registro" class="page cached">
+            <div class="page-content">
+            <div id="espacioLogo"><img src="img/logo2.png" /></div>
+            
+              <form class="cRegistro" id="cRegistro" method="post" action=""  novalidate="novalidate">
+                <div class="titulo-form"><h4>CREA TU PERFIL</h4></div>
+                <div class="row no-gutter">
+                  <div class="col-50">
+                    <div data-role="content">
+                      <div class="hiddenfile" style="display:none">
+                        <input type="file"  data-clear-btn="false" name="image" id="image" accept="image/*" capture>
+                        <canvas></canvas>
+                      </div>
+                    </div>
+                    <div class="takePick">
+                      <button id="chooseFile"><i class="fa fa-camera-retro fa-lg"></i></button>
+                      <div id="preview"></div>
+                      <ul id="info" data-role="listview" data-inset="true"></ul>
+                    </div>
+                  </div>
+                  <div class="col-50">
+                    <select name="pais" id="pais">
+                          <option value="">Pa&iacute;s...</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="bolivia" >Bolivia</option>
+                        <option value="brasil" >Brasil</option>
+                        <option value="chile" >Chile</option>
+                        <option value="colombia" >Colombia</option>
+                        <option value="ecuador">Ecuador</option>
+                        <option value="guyana" >Guyana</option>
+                        <option value="paraguay" >Paraguay</option>
+                        <option value="peru" >Perú</option>
+                        <option value="surinam" >Surinam</option>
+                        <option value="uruguay" >Uruguay</option>
+                        <option value="venezuela" >Venezuela</option>
+                      </select>
+                      <select name="anio" id="anio">
+                        <option value="">Edad...</option>
+                          <option value="18" >18</option>
+                          <option value="19" >19</option>
+                          <option value="20" >20</option>
+                          <option value="21" >21</option>
+                          <option value="22" >22</option>
+                          <option value="23" >23</option>
+                          <option value="24" >24</option>
+                          <option value="25" >25</option>
+                          <option value="26" >26</option>
+                          <option value="27" >27</option>
+                          <option value="28" >28</option>
+                          <option value="29" >29</option>
+                          <option value="30" >30</option>
+                          <option value="31" >31</option>
+                      </select>
+                  </div>
+                </div>
+                <div id="xMoSpacio" class="row no-gutter">
+                    <input name="nick" id="nick" type="text" placeholder="Nick">
+                    <input name="email" id="email" type="text" placeholder="Email">
+                </div>
+                <div >
+                  <input class="submit" type="submit" value="GUARDAR">
+                </div>
+              </form>
+              <script type="text/javascript">
+                $( document ).ready(function() {
+
+                  jQuery.validator.setDefaults({
+                    debug: true,
+                    success: "valid"
+                  });
+                  
+                    $("#cRegistro").validate({
+                           rules: {
+                              nick: "required",
+                              pais: {
+                                required: true
+                              },
+                              anio: {
+                                required: true
+                              },
+                              email: {
+                                required: true,
+                                email: true
+                              }
+                            },
+                            messages: {
+                              nick: "*",
+                              pais: {
+                                required: "*"
+                              },
+                              anio: {
+                                required: "*"
+                              },
+                              email: {
+                                required: "*",
+                                email: "*"
+                              }
+                            },
+                          success: function(form){
+                            //alert('formulario');
+                          },
+                          submitHandler: function(form) {
+                            guardoDatos();
+                          }
+                      });
+                  });
+              </script>
+
+
+            </div>
+          </div>
+          
+          <!--
+          |================================================================================|
+          | BUSQUEDA                               
+          |================================================================================|
+          -->
+          <div id="playas" data-page="playas" class="page cached">
+            <div class="page-content">
+              <div class="content-block">
+                <div class="resultado"><div> RESULTADOS DE PLAYAS </div></div>
+                <div class="contenido">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--
+          |================================================================================|
+          | INFO                               
+          |================================================================================|
+          -->
+          <div id="busqueda" data-page="busqueda"  class="page cached">
+            <!-- Search Bar -->
+            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+              <div class="searchbar-input">
+                <input type="search" placeholder="Buscar"><a href="#" class="searchbar-clear"></a>
+              </div><a href="#" class="searchbar-cancel">Cancel</a>
+            </form>
+           
+            <!-- Search Bar overlay -->
+            <div class="searchbar-overlay"></div>
+           
+            <div class="page-content">
+              <!-- This block will be displayed if nothing found -->
+              <div class="content-block searchbar-not-found">
+                <div class="content-block-inner">No encontrado</div>
+              </div>
+           
+              <!-- This block will be displayed if anything found, and this list block is used a searbar target -->
+              <div class="list-block list-block-search searchbar-found">
+                
+              </div>
+            </div>
+          </div>    
+          <!--
+          |================================================================================|
+          | MAPA                               
+          |================================================================================|
+          -->
+          <div id="infoPlayas" data-page="infoPlayas" class="page cached">
+            <div class="page-content">
+              <div class="content-block">
+                <div class="resultado"><div></div></div>
+                  <div class="contenido">
+                    <article>
+                      <figure>
+                        <img src="img/comodin.png" />
+                      </figure>
+                      <div class="rated">
+                        
+                      </div>
+
+                      <div class="detalles">
+                        <h5>Actividades</h5>
+                        <div class="mActividades">
+                          
+                        </div>
+                        <hr/>
+                        <h5>Servicios</h5>
+                        <div class="mServicios">
+                          
+                        </div>
+                        <hr/>
+                        <div class="informacion-lugar">
+                          
+                        </div>
+                      </div>
+
+                    </article>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!--
+          |================================================================================|
+          | MIS PLAYAS                               
+          |================================================================================|
+          -->
+          <div id="misplayas" data-page="misplayas" class="page cached">
+            <div class="page-content">
+              <div class="content-block">
+                <div class="resultado"><div>MIS PLAYAS</div></div>
+                
+                <div class="row contenido">
+                  
+                  
+
+                </div>
+              
+              </div>
+            </div>
+          </div> 
+
+          <!--
+          |================================================================================|
+          | MAPAS                             
+          |================================================================================|
+          -->
+          <div id="mapa" data-page="mapa" class="page cached">
+            <div class="page-content">
+              <div class="content-block">
+                <!--<div class="resultado"><div>MAPAS</div></div>-->
+                
+                <div class="row contenido">
+                    <!--<script type="text/javascript">
+                    //<![CDATA[  
+                    google.load('maps', '2', {callback:simple});
+                    var map;
+                    function simple(){  
+                      if (GBrowserIsCompatible()) { 
+                      var map = new GMap2(document.getElementById("map1"));
+map.setCenter(
+                        new GLatLng(-2.162024, -79.906211), 8);
+                      }
+                      var point;
+                      var x;
+                      var locations = new Array();
+                      locations[0] = [-2.176311, -79.895119];
+                      locations[1] = [-2.134669, -79.898168];
+
+                              for (x in locations) {
+                                  point = new GLatLng(locations[x]);
+                                  map.addOverlay(new GMarker(point));
+                              }
+                    
+
+                      //var marker = createMarker(point,'La Universidad de la Habana')
+                      //map.addOverlay(marker);
+                      
+                    }
+                    function createMarker(point,html) {
+                      var marker = new GMarker(point);
+                      GEvent.addListener(marker, "click", function() {
+                      marker.openInfoWindowHtml(html);});
+                      return marker;
+                    }  
+                    window.onload=function(){simple();}
+                    //]]>
+                    </script>
+                    <div id="map1" style="width:650px;height:240px;border:2px solid blue;"></div>
+                    -->
+
+                    <div id="map"></div>
+    <script>
+
+    
+   
+    </script>
+    <!--<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxjkDTqarZuUpYLOVYid6sG6LTZ_3RI9c&callback=initMap">
+    </script>-->
+                </div>
+              
+              </div>
+            </div>
+          </div>  
+          
+          
+
+
+   
+
+
+
+        </div>
+
+      </div>
+    </div>
+    
+
+   
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/_index.js"></script>
+    
+  </body>
+</html>

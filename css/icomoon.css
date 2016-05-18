@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?y735jf');
+    src:    url('fonts/icomoon.eot?y735jf#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?y735jf') format('truetype'),
+        url('fonts/icomoon.woff?y735jf') format('woff'),
+        url('fonts/icomoon.svg?y735jf#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gallera:before {
+    content: "\e91a";
+}
+.icon-guia:before {
+    content: "\e91b";
+}
+.icon-banco:before {
+    content: "\e91c";
+}
+.icon-mall:before {
+    content: "\e91d";
+}
+.icon-comida:before {
+    content: "\e91e";
+}
+.icon-pet:before {
+    content: "\e91f";
+}
+.icon-sombrero:before {
+    content: "\e920";
+}
+.icon-pan:before {
+    content: "\e921";
+}
+.icon-aladelta:before {
+    content: "\e922";
+}
+.icon-cajero:before {
+    content: "\e923";
+}
+.icon-iglesia:before {
+    content: "\e924";
+}
+.icon-campamento:before {
+    content: "\e925";
+}
+.icon-fogata:before {
+    content: "\e926";
+}
+.icon-snorkel:before {
+    content: "\e927";
+}
+.icon-parqueo:before {
+    content: "\e928";
+}
+.icon-cuidador:before {
+    content: "\e929";
+}
+.icon-disco:before {
+    content: "\e92a";
+}
+.icon-chef:before {
+    content: "\e92b";
+}
+.icon-cine:before {
+    content: "\e92c";
+}
+.icon-faro:before {
+    content: "\e92d";
+}
+.icon-silhouette2:before {
+    content: "\e92e";
+}
+.icon-cancha:before {
+    content: "\e92f";
+}
+.icon-kayac:before {
+    content: "\e930";
+}
+.icon-yoga:before {
+    content: "\e931";
+}
+.icon-karaoke:before {
+    content: "\e932";
+}
+.icon-buque:before {
+    content: "\e933";
+}
+.icon-jetski:before {
+    content: "\e934";
+}
+.icon-starting:before {
+    content: "\e935";
+}
+.icon-wifi:before {
+    content: "\e917";
+}
+.icon-malecon:before {
+    content: "\e918";
+}
+.icon-lancha:before {
+    content: "\e919";
+}
+.icon-policia:before {
+    content: "\e900";
+}
+.icon-piscina:before {
+    content: "\e901";
+}
+.icon-chiringo:before {
+    content: "\e902";
+}
+.icon-restaurantes:before {
+    content: "\e903";
+}
+.icon-hospital:before {
+    content: "\e904";
+}
+.icon-farmacias:before {
+    content: "\e905";
+}
+.icon-banos:before {
+    content: "\e906";
+}
+.icon-parqueaderos:before {
+    content: "\e907";
+}
+.icon-arriendo:before {
+    content: "\e908";
+}
+.icon-tiendas:before {
+    content: "\e909";
+}
+.icon-salvavidas:before {
+    content: "\e90a";
+}
+.icon-hotel:before {
+    content: "\e90b";
+}
+.icon-avistamiento-ballena:before {
+    content: "\e90c";
+}
+.icon-cabalgatas:before {
+    content: "\e90d";
+}
+.icon-banana:before {
+    content: "\e90e";
+}
+.icon-juegos-infantiles:before {
+    content: "\e90f";
+}
+.icon-surf:before {
+    content: "\e910";
+}
+.icon-avistamiento-aves:before {
+    content: "\e911";
+}
+.icon-silhouette:before {
+    content: "\e912";
+}
+.icon-pesca:before {
+    content: "\e913";
+}
+.icon-Kitesurf:before {
+    content: "\e914";
+}
+.icon-bicicleta:before {
+    content: "\e915";
+}
+.icon-Velerismo:before {
+    content: "\e916";
+}
+
+
