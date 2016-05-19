@@ -351,7 +351,7 @@ function playasOFFLine(){
       _playas = JSON.parse(localStorage.getItem( '_playas'));
       for ( playa in _playas) {
         
-        $('#busqueda .list-block ul').append('<li class="item-content" onclick="cargoDetalle('+_playas[playa].id_playa+');"><div class="item-inner"><div class="item-title">'+_playas[playa].slug+'</div></div></li>');
+        $('#busqueda .list-block ul').append('<li class="item-content" onclick="cargoDetalle('+_playas[playa].id_playa+');"><div class="item-inner"><div class="item-title">'+_playas[playa].slug+'</div><span class="item-title apago">'+_playas[playa].nombreCiudad+'</span><span class="item-title apago">'+_playas[playa].nombreProvincia+'</span></div></li>');
         
         if(_playas[playa].mapa){
               var valueToPush = { };
