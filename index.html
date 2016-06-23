@@ -18,9 +18,9 @@
 
     <div class="statusbar-overlay"></div>
     <div class="panel-overlay"></div>
-    <div class="panel panel-left panel-cover">
+    <!--<div class="panel panel-left panel-cover">
       <div class="content-block">
-       <p><img src="img/logo2.png" /></p>
+       <p><img src="img/logo2.png" class="logoNormal" /></p>
        <div class="row perfil">
          <div class="imagen col-50"></div>
          <div class="nickname col-50"></div>
@@ -42,7 +42,7 @@
                 </ul>
               </div>
       </div>
-    </div>
+    </div>-->
 
     <div class="views">
       <div class="view view-main">
@@ -52,11 +52,11 @@
 
           <div id="home" data-page="playas" class="navbar-inner cached">
             <div class="left">
-              <a href="#" data-panel="left" class="open-panel"><i class="icon fa fa-bars"></i></a>
+              <!--<a href="#" data-panel="left" class="open-panel"><i class="icon fa fa-bars"></i></a>-->
             </div>
-            <div class="center"><p><img src="img/logo2.png" /></p></div>
+            <div class="center"><p><img src="img/logo2.png" class="logoNormal" /></p></div>
             <div class="right">
-                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+                <a href="#index" ><i class="fa fa-search"></i></a>
             </div>
             
             <div class="subnavbar">
@@ -66,14 +66,14 @@
 
           <div id="pageBusqueda" data-page="busqueda" class="navbar-inner cached">
             <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
-            <div class="center sliding"><p><img src="img/logo2.png" /></p></div>
+            <div class="center sliding"><p><img src="img/logo2.png" class="logoNormal" /></p></div>
           </div>
 
           <div data-page="infoPlayas" class="navbar-inner cached">
             <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
-            <div class="center sliding"><p><img src="img/logo2.png" /></div>
+            <div class="center sliding"><p><img src="img/logo2.png" class="logoNormal" /></div>
             <div class="right">
-                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+                <a href="#index" ><i class="fa fa-search"></i></a>
             </div>
             <div class="subnavbar">
               <div id="obPlaya" class="resultado"><div>  </div></div>
@@ -86,9 +86,9 @@
 
           <div data-page="misplayas" class="navbar-inner cached">
             <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
-            <div class="center sliding"><p><img src="img/logo2.png" /></p></div>
+            <div class="center sliding"><p><img src="img/logo2.png" class="logoNormal" /></p></div>
             <div class="right">
-                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+                <a href="#index" ><i class="fa fa-search"></i></a>
             </div>
             <div class="subnavbar">
               <div class="resultado"><div> MIS PLAYAS </div></div>
@@ -97,9 +97,9 @@
 
           <div data-page="mapa" class="navbar-inner cached">
             <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
-            <div class="center sliding"><p><img src="img/logo2.png" /></p></div>
+            <div class="center sliding"><p><img src="img/logo2.png" class="logoNormal" /></p></div>
             <div class="right">
-                <a href="#busqueda" ><i class="fa fa-search"></i></a>
+                <a href="#index" ><i class="fa fa-search"></i></a>
             </div>
             <div class="subnavbar">
               <div id="nameMapa" class="resultado"><div> Mapa </div></div>
@@ -112,16 +112,61 @@
           | INICIO                               
           |================================================================================|
           -->
-          <!--<div id="index" data-page="index" class="page">
+          <div id="index" data-page="index" class="page">
             <div class="page-content">
                 <img src="img/logo.png" class="homeLogo"/>
-                <div class="content-block">
-                  <footer>
-                    <a href="#playas"><div class="boton-entrar">REGISTRO</div></a>
-                  </footer>
+                <div class="perfil">
+                  <div class="imagen"></div>
+                  <div class="nickname"><span></span></div>
                 </div>
+                <div class="observacion"><a href="#misplayas">MIS PLAYAS</a></div>
+
+                <hr/>
+
+                <form id="cuestionario1">
+                  
+                  <div class="row">
+                    <div class="col-90 centrar-espacio">
+                        <input type="text" class="form-control" id="buscador" name="busqueda" placeholder="Buscar...">
+                    </div>
+                  </div>                  
+                </form>
+
+                <hr/>
+
+                <form id="cuestionario2">
+                  <div class="row">
+                    <div class="col-90 centrar-espacio">
+                        <select name="provincias" class="form-control" id="home_provincias">
+                          <option value="0">Seleccionar uno...</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="row"> 
+                    <div class="col-90 centrar-espacio">
+                        <select name="servicios" class="form-control" id="home_actividades">
+                          <option value="0">Seleccionar uno...</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-90 centrar-espacio">
+                        <select name="actividades" class="form-control" id="home_servicios">
+                          <option value="0">Seleccionar uno...</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-90 centrar-espacio">
+                      <a href="#" class="button active" onclick="busqueda()">BUSCAR</a>
+                    </div>
+                  </div>
+
+
+                </form>
+                
             </div>
-          </div>-->
+          </div>
 
           
           <!--
@@ -146,7 +191,7 @@
           -->
           <div id="registro" data-page="registro" class="page cached">
             <div class="page-content">
-            <div id="espacioLogo"><img src="img/logo2.png" /></div>
+            <div id="espacioLogo"><img src="img/logo2.png" class="logoNormal" /></div>
             
               <form class="cRegistro" id="cRegistro" method="post" action=""  novalidate="novalidate">
                 <div class="titulo-form"><h4>CREA TU PERFIL</h4></div>
@@ -251,21 +296,12 @@
           |================================================================================|
           -->
           <div id="busqueda" data-page="busqueda"  class="page cached">
-            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
-              <div class="searchbar-input">
-                <input type="search" placeholder="Buscar"><a href="#" class="searchbar-clear"></a>
-              </div><a href="#" class="searchbar-cancel">Cancel</a>
-            </form>
-           
-            <div class="searchbar-overlay"></div>
-           
+            
             <div class="page-content">
-              <div class="content-block searchbar-not-found">
-                <div class="content-block-inner">No encontramos coincidencia con la busqueda</div>
-              </div>
-           
-              <div class="list-block list-block-search searchbar-found">
+              <div class="content-block">
                 
+                <div class="contenido">
+                </div>
               </div>
             </div>
           </div>    
