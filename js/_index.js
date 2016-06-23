@@ -583,7 +583,7 @@ function guardoDatos(){
       data: datos,
       success: function(response){  
         //alert(response); 
-        mainView.router.load({pageName: 'playas', animatePages: false});
+        mainView.router.load({pageName: 'index', animatePages: false});
     
         var obj = response;
         
