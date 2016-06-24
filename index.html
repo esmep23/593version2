@@ -237,7 +237,18 @@
                     <input name="nick" id="nick" type="text" placeholder="Nick">
                     <input name="email" id="email" type="text" placeholder="Email">
                 </div>
-                <div >
+                
+                <script type="text/javascript">
+                  
+                  function checkLoginState() {
+                    FB.getLoginStatus(function(response) {
+                      statusChangeCallback(response);
+                    });
+                  }
+
+                </script>
+
+                <div>
                   <input class="submit" type="submit" value="GUARDAR">
                 </div>
               </form>
