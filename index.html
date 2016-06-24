@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="dist/css/framework7.ios.min.css">
     <script type="text/javascript" src="dist/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/my-app.css">
     <link rel="stylesheet" href="css/icomoon.css">
@@ -237,6 +238,24 @@
                     <input name="nick" id="nick" type="text" placeholder="Nick">
                     <input name="email" id="email" type="text" placeholder="Email">
                 </div>
+                <!-- -->
+                  
+                      <div class="event listening button" onclick="login();">Login with Facebook</div>
+                      <div id="fb-root"></div>
+                      <script type="text/javascript">
+                        
+                        var login = function () {
+                                      if (!window.cordova) {
+                                          var appId = prompt("1697322340519393", "");
+                                          facebookConnectPlugin.browserInit(appId);
+                                      }
+                                      facebookConnectPlugin.login( ["email"], 
+                                          function (response) { alert(JSON.stringify(response)) },
+                                          function (response) { alert(JSON.stringify(response)) });
+                                  }
+                                  
+                      </script>
+                <!-- -->
                 <div >
                   <input class="submit" type="submit" value="GUARDAR">
                 </div>
