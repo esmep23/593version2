@@ -194,7 +194,7 @@
             <div id="espacioLogo"><img src="img/logo2.png" class="logoNormal" /></div>
             
               <form class="cRegistro" id="cRegistro" method="post" action=""  novalidate="novalidate">
-                <div class="titulo-form"><h4>CREA TU PERFIL</h4></div>
+                <div class="titulo-form"><a href="checkLoginState()"><h4>CREA TU PERFIL</h4></a></div>
                 <div class="row no-gutter">
                   <div class="col-50">
                     <div data-role="content">
@@ -239,6 +239,8 @@
                 </div>
                 
                 <script type="text/javascript">
+
+                
                   
                   function checkLoginState() {
                     FB.getLoginStatus(function(response) {
