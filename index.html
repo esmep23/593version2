@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="google-signin-client_id" content="106958989770-bs85umberq2fmr10sfr5b8a4drnu86k0.apps.googleusercontent.com">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>_app PLAYAS_</title>
@@ -239,51 +240,32 @@
                     <input name="email" id="email" type="text" placeholder="Email">
                 </div>
                 <!-- -->
-                  
-                      <div class="event listening button" onclick="login();">Login with Facebook</div>
-                      <div id="fb-root"></div>
-                      <script type="text/javascript">
-                        
-                        var login = function () {
-                if (!window.cordova) {
-                    var appId = prompt("1697322340519393", "");
-                    facebookConnectPlugin.browserInit(appId);
-                }
-                facebookConnectPlugin.login( ["email"], 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            
-            var showDialog = function () { 
-                facebookConnectPlugin.showDialog( { method: "feed" }, 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            
-            var apiTest = function () { 
-                facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) }); 
-            }
-            var getAccessToken = function () { 
-                facebookConnectPlugin.getAccessToken( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            
-            var getStatus = function () { 
-                facebookConnectPlugin.getLoginStatus( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            var logout = function () { 
-                facebookConnectPlugin.logout( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-                                  
-                      </script>
-                <!-- -->
+                <div id="my-signin2"></div>
+                <script>
+                  function onSuccess(googleUser) {
+                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                    console.log('Logged in picture: ' + googleUser.getBasicProfile().getImageUrl());
+                    console.log('Logged in picture: ' + googleUser.getBasicProfile().getEmail());
+
+                  }
+                  function onFailure(error) {
+                    console.log(error);
+                  }
+                  function renderButton() {
+                    gapi.signin2.render('my-signin2', {
+                      'scope': 'profile email',
+                      'width': 240,
+                      'height': 50,
+                      'longtitle': true,
+                      'theme': 'dark',
+                      'onsuccess': onSuccess,
+                      'onfailure': onFailure
+                    });
+                  }
+                </script>
+
+                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
                 <div >
                   <input class="submit" type="submit" value="GUARDAR">
                 </div>
