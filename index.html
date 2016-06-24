@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/my-app.css">
     <link rel="stylesheet" href="css/icomoon.css">
+    <script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
   </head>
   <body>
 
@@ -240,33 +241,86 @@
                     <input name="email" id="email" type="text" placeholder="Email">
                 </div>
                 <!-- -->
-                <div id="my-signin2"></div>
-                <script>
-                  function onSuccess(googleUser) {
-                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-                    console.log('Logged in picture: ' + googleUser.getBasicProfile().getImageUrl());
-                    console.log('Logged in picture: ' + googleUser.getBasicProfile().getEmail());
 
-                  }
-                  function onFailure(error) {
-                    console.log(error);
-                  }
-                  function renderButton() {
-                    gapi.signin2.render('my-signin2', {
-                      'scope': 'profile email',
-                      'width': 240,
-                      'height': 50,
-                      'longtitle': true,
-                      'theme': 'dark',
-                      'onsuccess': onSuccess,
-                      'onfailure': onFailure
-                    });
-                  }
-                </script>
+                <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <div class="event listening button" onclick="login();">Login with Facebook</div>
+            <div class="event listening button" onclick="showDialog();">Show Dialog with Facebook</div>
+            <div class="event listening button" onclick="apiTest();">Test API with Facebook</div>
+            <div class="event listening button" onclick="getAccessToken();">Get access token with Facebook</div>
+            <div class="event listening button" onclick="logPurchase();">Log Purchase Event</div>
+            <div class="event listening button" onclick="logEvent();">Log Regular Event</div>
+            <div class="event listening button" onclick="getStatus();">Get login status with Facebook</div>
+            <div class="event listening button" onclick="logout();">Logout with Facebook</div>
+        </div>
+        <div id="fb-root"></div>
+        
+        <script type="text/javascript">
 
-                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-
-                <div >
+            var login = function () {
+                if (!window.cordova) {
+                    var appId = prompt("1697322340519393", "");
+                    facebookConnectPlugin.browserInit(appId);
+                }
+                facebookConnectPlugin.login( ["email"],
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            
+            var showDialog = function () { 
+                facebookConnectPlugin.showDialog( { method: "feed" }, 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            
+            var apiTest = function () { 
+                facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) }); 
+            }
+            var logPurchase = function () {
+                facebookConnectPlugin.logPurchase(1.99, "USD",
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            var logEvent = function () {
+                // For more information on AppEvent param structure see
+                // https://developers.facebook.com/docs/ios/app-events
+                // https://developers.facebook.com/docs/android/app-events
+                facebookConnectPlugin.logEvent("Purchased",
+                    {
+                        NumItems: 1,
+                        Currency: "USD",
+                        ContentType: "shoes",
+                        ContentID: "HDFU-8452"
+                    }, null,
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            var getAccessToken = function () { 
+                facebookConnectPlugin.getAccessToken( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            
+            var getStatus = function () { 
+                facebookConnectPlugin.getLoginStatus( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            var logout = function () { 
+                facebookConnectPlugin.logout( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+        </script>
+                
+                <!-- -->
+                <div>
                   <input class="submit" type="submit" value="GUARDAR">
                 </div>
               </form>
