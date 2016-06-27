@@ -121,50 +121,57 @@
                 </div>
                 <div class="observacion"><a href="#misplayas">MIS PLAYAS</a></div>
 
-                <hr/>
+                <div class="cuestionarios">
 
-                <form id="cuestionario1">
-                  
-                  <div class="row">
-                    <div class="col-90 centrar-espacio">
-                        <input type="text" class="form-control" id="buscador" name="busqueda" placeholder="Buscar...">
+                  <form id="cuestionario1">
+                    <div class="row">
+                      <div class="col-90 titulo">Búsqueda Libre</div>
                     </div>
-                  </div>                  
-                </form>
+                    <div class="row">
+                      <div class="col-90 centrar-espacio">
+                          <input type="text" class="form-control" id="buscador" name="busqueda" placeholder="Buscar...">
+                      </div>
+                    </div>                  
+                  </form>
 
-                <hr/>
-
-                <form id="cuestionario2">
-                  <div class="row">
-                    <div class="col-90 centrar-espacio">
-                        <select name="provincias" class="form-control" id="home_provincias">
-                          <option value="0">Seleccionar uno...</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="row"> 
-                    <div class="col-90 centrar-espacio">
-                        <select name="servicios" class="form-control" id="home_actividades">
-                          <option value="0">Seleccionar uno...</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-90 centrar-espacio">
-                        <select name="actividades" class="form-control" id="home_servicios">
-                          <option value="0">Seleccionar uno...</option>
-                        </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-90 centrar-espacio">
-                      <a href="#" class="button active" onclick="busqueda()">BUSCAR</a>
-                    </div>
-                  </div>
-
-
-                </form>
                 
+
+                  <form id="cuestionario2">
+                    <div class="row">
+                      <div class="col-90 titulo">Búsqueda Avanzada</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-90 centrar-espacio">
+                          <select name="provincias" class="form-control" id="home_provincias">
+                            <option value="0">Provincia</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="row"> 
+                      <div class="col-90 centrar-espacio">
+                          <select name="servicios" class="form-control" id="home_actividades">
+                            <option value="0">Actividad</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-90 centrar-espacio">
+                          <select name="actividades" class="form-control" id="home_servicios">
+                            <option value="0">Servicio</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-90 centrar-espacio">
+                        <a href="#" class="button active" onclick="busqueda()">BUSCAR</a>
+                      </div>
+                    </div>
+
+
+                  </form>
+                
+                </div>
+
             </div>
           </div>
 

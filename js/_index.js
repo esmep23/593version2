@@ -17,7 +17,7 @@ var found;
 
 
 $( document ).ready(function() {
-   
+
   //sizeWindows();
   playasOFFLine();
   perfilUsuario();
@@ -139,6 +139,11 @@ $( document ).ready(function() {
       $( "#home_servicios" ).val('0');
   });
 
+  window.addEventListener("keypress", function(event){
+      if (event.keyCode == 13){
+          event.preventDefault();
+      }
+  }, false);
   
 
 }); // document ready
@@ -870,7 +875,7 @@ function provincia(){
   }
 
 function busqueda(){
-  //alert(1);
+  
   //$('#buscador').val();
   var nMBuscar = $('#buscador').val();
   if(nMBuscar != ''){
@@ -900,13 +905,13 @@ function busqueda(){
 
         });
 
-
-        if(miBusqueda){
-          cargoBusqueda(miBusqueda);
+        if (miBusqueda === undefined || miBusqueda.length == 0) {
           
-        }else{
           alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
           $('#buscador').val("");
+
+        }else{
+          cargoBusqueda(miBusqueda);
         }
         
               
@@ -959,8 +964,8 @@ function busqueda(){
             cargoBusqueda(miBusquedaProvincia);
 
         }else{
-            alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-            $('#buscador').val("");
+            //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
+            //$('#buscador').val("");
         }
 
 
@@ -984,8 +989,8 @@ function busqueda(){
                 cargoBusqueda(miBusquedaActividades);
 
             }else{
-                alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-                $('#buscador').val("");
+                //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
+                //$('#buscador').val("");
             }
 
       }
@@ -1050,8 +1055,8 @@ function busqueda(){
             cargoBusqueda(found);
             
           }else{
-            alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-            $('#buscador').val("");
+            //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
+            //$('#buscador').val("");
           }
       }
 
@@ -1086,10 +1091,11 @@ function cargoBusqueda(_argument){
   $('#busqueda .contenido').empty();
   if (_argument === undefined || _argument.length == 0) {
     // empty
+
+    
     alert('Seleccione un metodo de busqueda por favor');
 
   } else {
-
     _argument.forEach(function(_entry) {
 
       for ( playa in _playas) {
