@@ -67,6 +67,9 @@
           <div id="pageBusqueda" data-page="busqueda" class="navbar-inner cached">
             <div class="left sliding"><a href="#" class="back link"> <i class="icon fa fa-chevron-left"></i></a></div>
             <div class="center sliding"><p><img src="img/logo2.png" class="logoNormal" /></p></div>
+            <div class="subnavbar">
+              <div class="resultado"><div> RESULTADOS DE PLAYAS </div></div>
+            </div>
           </div>
 
           <div data-page="infoPlayas" class="navbar-inner cached">
@@ -113,15 +116,17 @@
           |================================================================================|
           -->
           <div id="index" data-page="index" class="page">
-            <div class="page-content">
-                <img src="img/logo.png" class="homeLogo"/>
-                <div class="perfil">
+            <div class="page-content flex-container">
+                <div class="flex-item-auto">
+                  <img src="img/logo.png" class="homeLogo" />
+                </div>
+                <div class="perfil flex-item-auto">
                   <div class="imagen"></div>
                   <div class="nickname"><span></span></div>
                 </div>
                 <div class="observacion"><a href="#misplayas">MIS PLAYAS</a></div>
 
-                <div class="cuestionarios">
+                <div class="cuestionarios flex-item-auto">
 
                   <form id="cuestionario1">
                     <div class="row">
@@ -161,15 +166,12 @@
                           </select>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-90 centrar-espacio">
-                        <a href="#" class="button active" onclick="busqueda()">BUSCAR</a>
-                      </div>
-                    </div>
-
-
                   </form>
                 
+                </div>
+
+                <div class="search flex-item-auto">
+                    <a href="#" class="button active" onclick="busqueda()">BUSCAR</a>
                 </div>
 
             </div>
