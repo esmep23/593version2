@@ -30,37 +30,42 @@ $( document ).ready(function() {
     localStorage.setItem( 'favoritos', "0" );
   }
 
-  if ($$('body').hasClass('with-panel-left-cover')) {
-     // console.log('Left Panel is opened')
+
+mainView.hideNavbar();
+
+/*
+  if($('.page-on-center').attr('id') == 'home'){
+    mainView.hideNavbar();
+  }else{
+     mainView.showNavbar();
   }
+*/
 
   myApp.onPageInit('registro', function (page) {
-    
+    mainView.hideNavbar();
     for (var i = 14; i < 100; i++) {
       $('#anio').append('<option value="'+i+'">'+i+'</option>');
     } 
 
   });
+  
 
 
+  
+/*
   myApp.onPageInit('playas', function (page) {
 
     //myApp.openPanel('left'); //abro menu
     setTimeout(function(){ 
       playasOFFLine();
 
-      $('div.navbar').css('display','block');
     }, 1000);
    
   });
 
-  myApp.onPageInit('busqueda', function (page) {
-    $('div.navbar').css('display','block');
-  });
 
   myApp.onPageBeforeInit('index', function (page) {
-    $('div.navbar').css('display','none');
-
+      
       $( "#home_provincias" ).change(function() {
          $('#buscador').val('');
       });
@@ -73,20 +78,20 @@ $( document ).ready(function() {
          $('#buscador').val('');
       });
 
+      
+
   });
 
+*/
+  myApp.onPageBeforeAnimation('busqueda', function (page) {
+    mainView.showNavbar();
+  });
 
-  myApp.onPageBeforeInit('misplayas', function (page) {
+  myApp.onPageBeforeAnimation('misplayas', function (page) {
     misPlayas();
-    $('div.navbar').css('display','block');
+    mainView.showNavbar();
   });
 
-
-  
-
-  myApp.onPageInit('registro', function (page) {
-    $('div.navbar').css('display','none');
-  });
 
   myApp.onPageInit('mapa', function (page) {
     $('#map').css('width','100%');
@@ -112,7 +117,7 @@ $( document ).ready(function() {
   if(value){
     //alert('TENGO');    
     //mainView.router.load({pageName: 'playas', animatePages: false});
-    mainView.router.load({pageName: 'index', animatePages: false});
+    mainView.router.load({pageName: 'home', animatePages: false});
       
   }else{
     //alert('NO TENGO');  
@@ -144,6 +149,7 @@ $( document ).ready(function() {
           event.preventDefault();
       }
   }, false);
+
   
 
 }); // document ready
@@ -588,7 +594,7 @@ function guardoDatos(){
       data: datos,
       success: function(response){  
         //alert(response); 
-        mainView.router.load({pageName: 'index', animatePages: false});
+        mainView.router.load({pageName: 'home', animatePages: false});
     
         var obj = response;
         
@@ -907,8 +913,9 @@ function busqueda(){
 
         if (miBusqueda === undefined || miBusqueda.length == 0) {
           
-          alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
+          myApp.alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.', '593-Playas');
           $('#buscador').val("");
+        
 
         }else{
           cargoBusqueda(miBusqueda);
@@ -959,13 +966,18 @@ function busqueda(){
                 miBusquedaProvincia.push(_playas[playa].id_playa);
             }
           }
-        if(miBusquedaProvincia){
+        
+        if (miBusquedaProvincia === undefined || miBusquedaProvincia.length == 0) {
+           if(cuant != 0){
+              myApp.alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.', '593-Playas');
+              cuant = 0;
+              return
+            }
 
-            cargoBusqueda(miBusquedaProvincia);
 
         }else{
-            //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-            //$('#buscador').val("");
+            cargoBusqueda(miBusquedaProvincia);
+            
         }
 
 
@@ -984,13 +996,18 @@ function busqueda(){
               }
 
             }
-            if(miBusquedaActividades){
+            
+            if (miBusquedaActividades === undefined || miBusquedaActividades.length == 0) {
 
-                cargoBusqueda(miBusquedaActividades);
+               if(cuant != 0){
+               myApp.alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.', '593-Playas');
+                cuant = 0;
+                return
+              }
 
             }else{
-                //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-                //$('#buscador').val("");
+                cargoBusqueda(miBusquedaActividades);
+                
             }
 
       }
@@ -1051,16 +1068,28 @@ function busqueda(){
           console.log(found);
           
 
-          if(found){
-            cargoBusqueda(found);
-            
+          if (found === undefined || found.length == 0) {
+
+            if(cuant != 0){
+               myApp.alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.', '593-Playas');
+              cuant = 0;
+              return
+            }
+
           }else{
-            //alert('Lo sentimos, vuelve a intentarlo. No encontramos coincidencia.');
-            //$('#buscador').val("");
+            cargoBusqueda(found);
           }
       }
 
 
+      if(cuant == 0){
+
+         myApp.alert('Seleccione un metodo de busqueda por favor', '593-Playas');
+
+        return
+      }
+      console.log(cuant);
+      cuant = 0;
       
   } // else
 }
@@ -1092,8 +1121,8 @@ function cargoBusqueda(_argument){
   if (_argument === undefined || _argument.length == 0) {
     // empty
 
-    
-    alert('Seleccione un metodo de busqueda por favor');
+    myApp.alert('Seleccione un metodo de busqueda por favor', '593-Playas');
+    return
 
   } else {
     _argument.forEach(function(_entry) {
@@ -1138,11 +1167,14 @@ function cargoBusqueda(_argument){
 
   } //else
 
-
-
-
-
-  
-
 }
-//  
+//
+
+function regresaHome(){
+
+  mainView.hideNavbar();
+  mainView.router.load({pageName: 'home', animatePages: false});
+
+
+
+}  
