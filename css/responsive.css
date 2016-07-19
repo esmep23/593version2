@@ -3,6 +3,7 @@
 		margin-top: 10%!important;	
 	}
 	.perfil .imagen img{
+		width: 55px;
 		height: 55px;
 	}
 	#cuestionario1, #cuestionario2{
