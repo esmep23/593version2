@@ -1,0 +1,11 @@
+@media screen and (min-height: 500px) {
+	img.homeLogo{
+		margin-top: 10%!important;	
+	}
+	.perfil .imagen img{
+		height: 55px;
+	}
+	#cuestionario1, #cuestionario2{
+		padding-top: 6%;
+	}
+}
