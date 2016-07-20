@@ -644,7 +644,8 @@ function guardoDatos(){
           /* si es mayor que el width*/
           if(theImg.height > theImg.width){
             //alert('es mas alto que ancho');
-            $('#preview img').css('margin-top','-50%');
+            var calculo = (theImg.height - 89) / 2
+            $('#preview img').css('margin-top', '-'+calculo+'px');
           }
 
         };
