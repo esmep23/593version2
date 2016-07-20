@@ -617,15 +617,13 @@ function guardoDatos(){
  
 
     $("input[type=file]").change(function(){
-      var file = $("input[type=file]")[0].files[0];            
+      var file = $("input[type=file]")[0].files[0];  
       $("#preview").empty();
       //$("button#chooseFile").css('display','none');
       $(".takePick input").css('display','none');
       $(".takePick").css('background','none');
       displayAsImage3(file, "preview");
       
-
-
     });
 
  function displayAsImage3(file, containerid) {
@@ -640,7 +638,15 @@ function guardoDatos(){
         return function (evt) {
           theImg.src = evt.target.result;
           localStorage.setItem("_imagenPerfil", evt.target.result);
+          console.log('Height Image'+theImg.height);
           //console.log(evt.target.result);
+
+          /* si es mayor que el width*/
+          if(theImg.height > theImg.width){
+            //alert('es mas alto que ancho');
+            $('#preview img').css('margin-top','-50%');
+          }
+
         };
       }(img));
       reader.readAsDataURL(file);
