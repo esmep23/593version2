@@ -637,7 +637,6 @@ function guardoDatos(){
       reader.onload = (function (theImg) {
         return function (evt) {
           theImg.src = evt.target.result;
-          localStorage.setItem("_imagenPerfil", evt.target.result);
           console.log('Height Image'+theImg.height);
           //console.log(evt.target.result);
 
@@ -647,6 +646,8 @@ function guardoDatos(){
             var calculo = (theImg.height - 89) / 2
             $('#preview img').css('margin-top', '-'+calculo+'px');
           }
+          
+          localStorage.setItem("_imagenPerfil", evt.target.result);
 
         };
       }(img));

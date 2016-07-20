@@ -1,0 +1,13 @@
+@media (min-height: 500px) { 
+	#home .logo{
+		height: 0px;
+		padding-top: 5%;
+	}
+	#home .imagen{
+		padding-top: 20px;
+	}
+	#home .imagen img{
+		width: 150px;
+		height: 150px;
+	}
+}
